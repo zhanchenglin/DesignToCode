@@ -98,7 +98,8 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-white font-['Roboto',system-ui,sans-serif]">
+    <div className="min-h-screen bg-gray-50 font-['Roboto',system-ui,sans-serif]">
+      <div className="max-w-md mx-auto bg-white min-h-screen">
       <div className="sticky top-0 z-50 bg-brand-yellow">
         <div className="flex items-center justify-between px-5 py-2 h-10">
           <div className="text-xs font-medium">19:30</div>
@@ -206,6 +207,7 @@ export default function Index() {
             <RestaurantCard key={index} {...restaurant} />
           ))}
         </div>
+      </div>
       </div>
     </div>
   );
