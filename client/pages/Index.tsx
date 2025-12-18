@@ -155,10 +155,10 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="flex items-end gap-4 px-0">
+        <div className="flex items-end gap-4">
           <button
             onClick={() => setActiveTab("spots")}
-            className="flex-1 flex flex-col items-center gap-1 pb-0"
+            className="flex-1 flex flex-col items-center gap-1"
           >
             <span
               className={`text-lg leading-6 ${
@@ -169,11 +169,13 @@ export default function Index() {
             >
               Spots
             </span>
-            <div className="h-0.5 w-[53px] bg-black rounded-full" />
+            {activeTab === "spots" && (
+              <div className="h-0.5 w-[53px] bg-black rounded-full" />
+            )}
           </button>
           <button
             onClick={() => setActiveTab("vouchers")}
-            className="flex-1 flex flex-col items-center gap-1 pb-0"
+            className="flex-1 flex flex-col items-center gap-1"
           >
             <span
               className={`text-lg leading-6 ${
@@ -192,7 +194,7 @@ export default function Index() {
       </div>
 
       <div className="px-3.5 pt-4">
-        <div className="flex items-start gap-2 mb-4 overflow-x-auto scrollbar-hide pb-1">
+        <div className="flex items-start gap-2 mb-4 overflow-x-auto scrollbar-hide pb-1 -mx-3.5 px-3.5">
           <FilterButton label="Sort by" hasDropdown />
           <FilterButton label="Categories" hasDropdown />
           <FilterButton label="Coupon" variant="coupon" />
