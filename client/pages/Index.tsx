@@ -100,114 +100,108 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-gray-50 font-['Roboto',system-ui,sans-serif]">
       <div className="max-w-md mx-auto bg-white min-h-screen">
-      <div className="sticky top-0 z-50 bg-brand-yellow">
-        <div className="flex items-center justify-between px-5 py-2 h-10">
-          <div className="text-xs font-medium">19:30</div>
-          <div className="flex items-center gap-1">
-            <svg className="w-5 h-4" viewBox="0 0 20 16">
-              <path
-                d="M15.7879 9.21213C15.905 9.09497 16.095 9.09497 16.2121 9.21213L17.4879 10.4879C17.6769 10.6769 17.543 11 17.2757 11H14.7243C14.457 11 14.3231 10.6769 14.5121 10.4879L15.7879 9.21213Z"
-                fill="black"
-              />
-              <path
-                d="M15.7879 13.7879C15.905 13.905 16.095 13.905 16.2121 13.7879L17.4879 12.5121C17.6769 12.3231 17.543 12 17.2757 12H14.7243C14.457 12 14.3231 12.3231 14.5121 12.5121L15.7879 13.7879Z"
-                fill="black"
-              />
-            </svg>
-            <svg className="w-[22px] h-4" viewBox="0 0 22 16">
-              <text
-                x="3"
-                y="12"
-                fontSize="10"
-                fontWeight="600"
-                fill="black"
-              >
-                5G
-              </text>
-            </svg>
-            <div className="flex items-center justify-center w-[26px] h-4 relative">
-              <div className="absolute inset-0 border border-black/30 rounded-sm" />
-              <div className="absolute left-[2px] top-[2px] bottom-[2px] right-[2px] bg-black" />
-              <span className="text-[10px] font-semibold relative z-10 text-white">
-                100
-              </span>
+        <div className="sticky top-0 z-50 bg-brand-yellow">
+          <div className="flex items-center justify-between px-5 py-2 h-10">
+            <div className="text-xs font-medium">19:30</div>
+            <div className="flex items-center gap-1">
+              <svg className="w-5 h-4" viewBox="0 0 20 16">
+                <path
+                  d="M15.7879 9.21213C15.905 9.09497 16.095 9.09497 16.2121 9.21213L17.4879 10.4879C17.6769 10.6769 17.543 11 17.2757 11H14.7243C14.457 11 14.3231 10.6769 14.5121 10.4879L15.7879 9.21213Z"
+                  fill="black"
+                />
+                <path
+                  d="M15.7879 13.7879C15.905 13.905 16.095 13.905 16.2121 13.7879L17.4879 12.5121C17.6769 12.3231 17.543 12 17.2757 12H14.7243C14.457 12 14.3231 12.3231 14.5121 12.5121L15.7879 13.7879Z"
+                  fill="black"
+                />
+              </svg>
+              <svg className="w-[22px] h-4" viewBox="0 0 22 16">
+                <text x="3" y="12" fontSize="10" fontWeight="600" fill="black">
+                  5G
+                </text>
+              </svg>
+              <div className="flex items-center justify-center w-[26px] h-4 relative">
+                <div className="absolute inset-0 border border-black/30 rounded-sm" />
+                <div className="absolute left-[2px] top-[2px] bottom-[2px] right-[2px] bg-black" />
+                <span className="text-[10px] font-semibold relative z-10 text-white">
+                  100
+                </span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="flex items-center px-2 pr-4 h-12 gap-1">
-          <button className="w-12 h-12 flex items-center justify-center">
-            <ArrowLeft className="w-6 h-6" />
-          </button>
+          <div className="flex items-center px-2 pr-4 h-12 gap-1">
+            <button className="w-12 h-12 flex items-center justify-center">
+              <ArrowLeft className="w-6 h-6" />
+            </button>
 
-          <div className="flex-1 flex items-center gap-1 h-9 px-1 bg-white rounded-3xl">
-            <div className="p-2">
-              <Search className="w-4 h-4 text-black/30" />
+            <div className="flex-1 flex items-center gap-1 h-9 px-1 bg-white rounded-3xl">
+              <div className="p-2">
+                <Search className="w-4 h-4 text-black/30" />
+              </div>
+              <input
+                type="text"
+                placeholder="keyword"
+                className="flex-1 text-sm outline-none bg-transparent"
+                defaultValue="keyword"
+              />
+              <button className="h-7 px-3 bg-brand-yellow rounded-[14px] text-xs font-bold">
+                Search
+              </button>
             </div>
-            <input
-              type="text"
-              placeholder="keyword"
-              className="flex-1 text-sm outline-none bg-transparent"
-              defaultValue="keyword"
-            />
-            <button className="h-7 px-3 bg-brand-yellow rounded-[14px] text-xs font-bold">
-              Search
+          </div>
+
+          <div className="flex items-end gap-4">
+            <button
+              onClick={() => setActiveTab("spots")}
+              className="flex-1 flex flex-col items-center gap-1"
+            >
+              <span
+                className={`text-lg leading-6 ${
+                  activeTab === "spots"
+                    ? "font-semibold text-black"
+                    : "font-normal text-black/54"
+                }`}
+              >
+                Spots
+              </span>
+              {activeTab === "spots" && (
+                <div className="h-0.5 w-[53px] bg-black rounded-full" />
+              )}
+            </button>
+            <button
+              onClick={() => setActiveTab("vouchers")}
+              className="flex-1 flex flex-col items-center gap-1"
+            >
+              <span
+                className={`text-lg leading-6 ${
+                  activeTab === "vouchers"
+                    ? "font-semibold text-black"
+                    : "font-normal text-black/54"
+                }`}
+              >
+                Vouchers
+              </span>
+              {activeTab === "vouchers" && (
+                <div className="h-0.5 w-[53px] bg-black rounded-full" />
+              )}
             </button>
           </div>
         </div>
 
-        <div className="flex items-end gap-4">
-          <button
-            onClick={() => setActiveTab("spots")}
-            className="flex-1 flex flex-col items-center gap-1"
-          >
-            <span
-              className={`text-lg leading-6 ${
-                activeTab === "spots"
-                  ? "font-semibold text-black"
-                  : "font-normal text-black/54"
-              }`}
-            >
-              Spots
-            </span>
-            {activeTab === "spots" && (
-              <div className="h-0.5 w-[53px] bg-black rounded-full" />
-            )}
-          </button>
-          <button
-            onClick={() => setActiveTab("vouchers")}
-            className="flex-1 flex flex-col items-center gap-1"
-          >
-            <span
-              className={`text-lg leading-6 ${
-                activeTab === "vouchers"
-                  ? "font-semibold text-black"
-                  : "font-normal text-black/54"
-              }`}
-            >
-              Vouchers
-            </span>
-            {activeTab === "vouchers" && (
-              <div className="h-0.5 w-[53px] bg-black rounded-full" />
-            )}
-          </button>
-        </div>
-      </div>
+        <div className="px-3.5 pt-4">
+          <div className="flex items-start gap-2 mb-4 overflow-x-auto scrollbar-hide pb-1 -mx-3.5 px-3.5">
+            <FilterButton label="Sort by" hasDropdown />
+            <FilterButton label="Categories" hasDropdown />
+            <FilterButton label="Coupon" variant="coupon" />
+            <FilterButton label="Open Now" />
+          </div>
 
-      <div className="px-3.5 pt-4">
-        <div className="flex items-start gap-2 mb-4 overflow-x-auto scrollbar-hide pb-1 -mx-3.5 px-3.5">
-          <FilterButton label="Sort by" hasDropdown />
-          <FilterButton label="Categories" hasDropdown />
-          <FilterButton label="Coupon" variant="coupon" />
-          <FilterButton label="Open Now" />
+          <div className="flex flex-col">
+            {restaurants.map((restaurant, index) => (
+              <RestaurantCard key={index} {...restaurant} />
+            ))}
+          </div>
         </div>
-
-        <div className="flex flex-col">
-          {restaurants.map((restaurant, index) => (
-            <RestaurantCard key={index} {...restaurant} />
-          ))}
-        </div>
-      </div>
       </div>
     </div>
   );
